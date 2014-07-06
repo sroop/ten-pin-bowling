@@ -27,4 +27,8 @@ describe 'Frame' do
     expect(frame3.spare?).to eq(true)
   end
 
+  it 'knows if a strike has been scored' do
+    expect(frame4.strike?).to eq(true)
+  end
+
 end

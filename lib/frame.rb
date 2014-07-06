@@ -15,7 +15,11 @@ class Frame
   end
 
   def spare?
-    self.total == 10
+    self.total == 10 && !strike?
+  end
+
+  def strike?
+    @rolls.first == 10
   end
 
 end
