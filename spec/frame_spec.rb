@@ -17,4 +17,8 @@ describe 'Frame' do
     expect(frame.incomplete?).to eq(false)
   end
 
+  it 'can calculate the frame total' do
+    expect(frame.total).to eq(7)
+  end
+
 end
