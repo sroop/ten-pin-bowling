@@ -7,10 +7,15 @@ class Frame
   end
 
   def incomplete?
-    return true if self.rolls.length < 2 else false
+    self.rolls.length < 2
   end
 
   def total
     @rolls.inject(:+)
   end
+
+  def spare?
+    self.total == 10
+  end
+
 end
