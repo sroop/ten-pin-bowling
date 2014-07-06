@@ -10,4 +10,7 @@ class Frame
     return true if self.rolls.length < 2 else false
   end
 
+  def total
+    @rolls.inject(:+)
+  end
 end
