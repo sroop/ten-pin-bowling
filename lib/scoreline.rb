@@ -7,8 +7,13 @@ class ScoreLine
     @frames << frames
   end
 
-  def add(frame)
-    @frames << frame
+  def add(frames)
+    if frames.is_a?(Array)
+      frames.each { |frame| @frames << frame }
+    else
+      frame = frames
+      @frames << frame
+    end
   end
 
 end
