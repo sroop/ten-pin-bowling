@@ -4,7 +4,7 @@ class ScoreLine
 
   def initialize(frames)
     @frames = []
-    @frames << frames
+    add(frames)
   end
 
   def add(frames)
@@ -14,6 +14,11 @@ class ScoreLine
       frame = frames
       @frames << frame
     end
+  end
+
+  def total
+    line_item_totals = @frames.map { |frame| frame.total }
+    line_item_totals.inject(:+)
   end
 
 end

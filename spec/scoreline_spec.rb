@@ -1,4 +1,5 @@
 require 'scoreline'
+require 'frame'
 
 describe 'ScoreLine' do
   
@@ -19,6 +20,13 @@ describe 'ScoreLine' do
   it 'can add several additional frames' do
     scoreline.add( [ frame2, frame3 ] )
     expect(scoreline.frames).to eq( [ frame1, frame2, frame3 ] )
+  end
+
+  it 'can calculate the total score, given two frames' do
+    frame = Frame.new(3, 4)
+    frame2 = Frame.new(2, 1)
+    score_line = ScoreLine.new([frame, frame2])
+    expect(score_line.total).to eq(10)
   end
 
 end
