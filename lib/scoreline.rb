@@ -2,9 +2,13 @@ class ScoreLine
 
   attr_reader :frames
 
-  def initialize(frames)
+  def initialize(frames)  
     @frames = []
     add(frames)
+  end
+
+  def roll_history
+    @frames.map { |frame| frame.rolls}
   end
 
   def add(frames)
@@ -17,8 +21,7 @@ class ScoreLine
   end
 
   def total
-    line_item_totals = @frames.map { |frame| frame.total }
-    line_item_totals.inject(:+)
+    roll_history.flatten.inject(:+)
   end
 
 end
