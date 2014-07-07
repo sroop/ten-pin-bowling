@@ -5,5 +5,9 @@ class ScoreLine
   def initialize(frames)
     @frames = frames
   end
-  
+
+  def add(frames)
+  end
+
+
 end
