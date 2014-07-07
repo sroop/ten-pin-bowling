@@ -11,11 +11,11 @@ describe 'Frame' do
     expect(frame.rolls).to eq([3, 4])
   end
 
-  it 'knows if a frame is incomplete' do
+  it 'knows if incomplete' do
     expect(frame2.incomplete?).to eq(true)
   end
 
-  it 'knows if a frame is complete' do
+  it 'knows if complete' do
     expect(frame.incomplete?).to eq(false)
   end
 
