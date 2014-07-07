@@ -3,9 +3,13 @@ class Frame
   attr_reader :roll_one
   attr_accessor :roll_two
 
-  def initialize(roll_one, roll_two=0)
+  def initialize(roll_one, roll_two=nil)
     @roll_one = roll_one
-    @roll_two = roll_two
+    if strike?
+      @roll_two = 0
+    else
+      @roll_two = roll_two
+    end
   end
 
   def rolls
@@ -13,11 +17,13 @@ class Frame
   end
 
   def incomplete?
-    self.rolls.length < 2
+    self.rolls.include?(nil)
   end
 
   def total
-    @rolls.inject(:+)
+    if !incomplete?
+      @rolls.inject(:+)
+    end
   end
 
   def spare?
@@ -25,7 +31,7 @@ class Frame
   end
 
   def strike?
-    @rolls.first == 10
+    roll_one == 10
   end
 
 end
