@@ -19,4 +19,5 @@ class ScoreHistory
     rolls.map { |frame| @scorehistory << frame[0] + frame[1] + ( @scorehistory.last || 0 ) }
     @scorehistory
   end
+  
 end
