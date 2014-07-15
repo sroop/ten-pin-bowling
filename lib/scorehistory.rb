@@ -9,4 +9,8 @@ class ScoreHistory
   def rolls
     @scoreline.history
   end
+
+  def total
+    rolls.flatten.inject(:+)
+  end
 end
