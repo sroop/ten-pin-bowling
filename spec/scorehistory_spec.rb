@@ -46,4 +46,12 @@ describe 'ScoreHistory' do
     expect(scorehistory.show).to eq([ 7, 10, 18, 26, 43, 50 ])
   end
 
+  it 'calculates two in a row strikes' do
+    frame5 = Frame.new(10)
+    frame6 = Frame.new(10)
+    frame7 = Frame.new(3, 2)
+    scoreline.add([frame5, frame6, frame7])
+    expect(scorehistory.show).to eq([ 7, 10, 18, 26, 49, 64, 69])
+  end
+
 end
