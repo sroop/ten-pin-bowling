@@ -21,16 +21,15 @@ class ScoreLine
     end
   end
 
-  def total_history #array of accumulated totals
-    @totals = [0]
-    accu_total = self.history.map { |frame| @totals << frame[0] + frame[1] + @totals.last }
-    accu_total.last
-  end
+  # def total_history #array of accumulated totals
+  #   @totals = [0]
+  #   self.history.map { |frame| @totals << frame[0] + frame[1] + @totals.last }
+  #   @totals
+  # end
 
-  def total #current total
-    total_history
-    @totals.last
-    # history.flatten.inject(:+)
-  end
+  # def total #current total
+  #   total_history
+  #   @totals.last
+  # end
 
 end

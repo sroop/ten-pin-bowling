@@ -4,6 +4,7 @@ class ScoreHistory
 
   def initialize(scoreline)
     @scoreline = scoreline
+    @scorehistory = []
   end
 
   def rolls
@@ -11,6 +12,11 @@ class ScoreHistory
   end
 
   def total
-    rolls.flatten.inject(:+)
+    show.last
+  end
+
+  def show
+    rolls.map { |frame| @scorehistory << frame[0] + frame[1] + ( @scorehistory.last || 0 ) }
+    @scorehistory
   end
 end

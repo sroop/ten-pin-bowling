@@ -24,4 +24,8 @@ describe 'ScoreHistory' do
     expect(scorehistory.total).to eq(26)
   end
 
+  it 'can generate a score history - a list of accumulated totals at the end of each frame' do
+    expect(scorehistory.show).to eq([7, 10, 18, 26])
+  end
+
 end
