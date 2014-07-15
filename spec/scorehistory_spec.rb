@@ -13,7 +13,11 @@ describe 'ScoreHistory' do
   let(:scorehistory) { ScoreHistory.new(scoreline) }
 
   it 'is initialized with a score line' do
-    expect(scorehistory.scoreline).to eq([frame1, frame2, frame3, frame4])
+    expect(scorehistory.scoreline).to eq(scoreline)
+  end
+
+  it 'can access the full list of frame rolls through the scoreline' do
+    expect(scorehistory.rolls).to eq([ [3, 4], [2, 1], [5, 3], [6, 2] ])
   end
 
 end
