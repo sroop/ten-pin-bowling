@@ -21,15 +21,12 @@ class ScoreLine
     end
   end
 
-  # def total_history #array of accumulated totals
-  #   @totals = [0]
-  #   self.history.map { |frame| @totals << frame[0] + frame[1] + @totals.last }
-  #   @totals
-  # end
+  def last_frame
+    frames.last
+  end
 
-  # def total #current total
-  #   total_history
-  #   @totals.last
-  # end
+  def bonuses_not_pending
+    return true unless last_frame.spare?
+  end
 
 end
