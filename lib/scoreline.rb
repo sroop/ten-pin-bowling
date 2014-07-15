@@ -3,12 +3,12 @@ class ScoreLine
   attr_reader :frames
 
   def initialize(frames) 
-    @totals = [0] 
+    # @totals = [0] 
     @frames = [] #array containing the frame objects
     add(frames)
   end
 
-  def history
+  def show
     @frames.map { |frame| frame.rolls} #array containing the scores in each frame
   end
 

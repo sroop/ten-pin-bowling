@@ -8,7 +8,7 @@ class ScoreHistory
   end
 
   def rolls
-    @scoreline.history
+    @scoreline.show
   end
 
   def total

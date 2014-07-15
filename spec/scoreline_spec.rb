@@ -11,17 +11,17 @@ describe 'ScoreLine' do
   let(:frame5) { Frame.new(2, 0) } 
 
   it 'is initialized with a list of frames' do
-    expect(scoreline.history).to eq([ [3, 4] ])
+    expect(scoreline.show).to eq([ [3, 4] ])
   end
 
   it 'can add one additional frame' do
     scoreline.add(frame2)
-    expect(scoreline.history).to eq( [ [3, 4], [2, 1] ] )
+    expect(scoreline.show).to eq( [ [3, 4], [2, 1] ] )
   end
 
   it 'can add several additional frames' do
     scoreline.add( [ frame2, frame3 ] )
-    expect(scoreline.history).to eq( [ [3, 4], [2, 1], [5, 3] ] )
+    expect(scoreline.show).to eq( [ [3, 4], [2, 1], [5, 3] ] )
   end
 
   # it 'can calculate the total score, given two frames' do
