@@ -25,8 +25,4 @@ class ScoreLine
     frames.last
   end
 
-  def bonuses_not_pending
-    return true unless last_frame.spare? || last_frame.strike?
-  end
-
 end

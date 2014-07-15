@@ -24,21 +24,15 @@ describe 'ScoreLine' do
     expect(scoreline.show).to eq( [ [3, 4], [2, 1], [5, 3] ] )
   end
 
-  # it 'can calculate the total score, given two frames' do
-  #   scoreline = ScoreLine.new([frame1, frame2])
-  #   expect(scoreline.total).to eq(10)
-  # end
-
-  # it 'can calculate the total score, given 5 frames' do
-  #   scoreline = ScoreLine.new([frame1, frame2, frame3, frame4, frame5])
-  #   expect(scoreline.total).to eq(28)
-  # end
-
-  # it 'can keep track of the scores cumulatively as the game progresses' do
-  #   scoreline = ScoreLine.new([frame1, frame2, frame3, frame4, frame5])
-  #   # expect(scoreline.total).to eq(28)
-  #   # expect(scoreline.history).to eq([[3, 4], [2, 1], [5, 3], [6, 2], [2, 0]])
-  #   expect(scoreline.total_history).to eq([0, 7, 10, 18, 26, 28])
-  # end
+  it 'can only hold 10 frames' do
+    frame6 = Frame.new(2, 3)
+    frame7 = Frame.new(2, 3)
+    frame8 = Frame.new(2, 3)
+    frame9 = Frame.new(2, 3)
+    frame10 = Frame.new(2, 3)
+    frame11 = Frame.new(2, 3)
+    expect{scoreline.add([ frame2, frame3, frame4, frame5, frame6, frame7, frame8, frame9, frame10, frame11 ])}.to raise_error('Ten frames only!')
+    # expect(scoreline.show).to eq([3,4],[2,1],[5,3],[6,2],[2,0],[2,3],[2,3],[2,3],[2,3],[2,3])
+  end
 
 end
