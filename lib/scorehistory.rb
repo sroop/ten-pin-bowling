@@ -20,6 +20,8 @@ class ScoreHistory
     @scoreline.frames.map.with_index do |frame, index|
       if frame.spare? && @scoreline.bonuses_not_pending
         @scorehistory << last_total + frame.total + @scoreline.show[index +1][0]
+      elsif frame.strike? && @scoreline.bonuses_not_pending
+        @scorehistory << last_total + frame.total + @scoreline.show[index +1][0] + @scoreline.show[index +1][1]
       else
         @scorehistory << frame.total + last_total
       end
