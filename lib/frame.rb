@@ -1,20 +1,12 @@
+require_relative 'two_rolls'
+
 class Frame
 
-  attr_accessor :roll_one
-  attr_accessor :roll_two
+  include TwoRolls
 
   def initialize(roll_one=nil, roll_two=nil)
-    @roll_one = roll_one
-    @roll_two = roll_two
+    super
     @roll_two = 0 if strike?
-  end
-
-  def rolls
-    @rolls = [roll_one, roll_two]
-  end
-
-  def incomplete?
-    self.rolls.include?(nil)
   end
 
   def total

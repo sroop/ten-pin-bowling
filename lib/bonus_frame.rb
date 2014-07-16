@@ -1,13 +1,7 @@
+require_relative 'two_rolls'
+
 class BonusFrame
 
-  attr_reader :frame
-
-  def initialize(frame)
-    @frame = frame
-  end
-
-  def show
-    @frame.rolls
-  end
+  include TwoRolls
 
 end
