@@ -8,7 +8,7 @@ describe 'ScoreHistory' do
   let(:frame2) { Frame.new(2, 1) } 
   let(:frame3) { Frame.new(5, 3) }
   let(:frame4) { Frame.new(6, 2) }
-  let(:scoreline) { ScoreLine.new([frame1, frame2, frame3, frame4]) }
+  let(:scoreline) { ScoreLine.new(frame1, frame2, frame3, frame4) }
   let(:scorehistory) { ScoreHistory.new(scoreline) }
 
   it 'is initialized with a score line' do
@@ -43,7 +43,7 @@ describe 'ScoreHistory' do
     it 'One strike' do
       frame5 = Frame.new(10)
       frame6 = Frame.new(5, 2)
-      scoreline.add([frame5, frame6])
+      scoreline.add(frame5, frame6)
       expect(scorehistory.rolls).to eq([ [3, 4], [2, 1], [5, 3], [6, 2], [10, 0], [5, 2] ])
       expect(scorehistory.show).to eq([ 7, 10, 18, 26, 43, 50 ])
     end
@@ -52,7 +52,7 @@ describe 'ScoreHistory' do
       frame5 = Frame.new(10)
       frame6 = Frame.new(10)
       frame7 = Frame.new(3, 2)
-      scoreline.add([frame5, frame6, frame7])
+      scoreline.add(frame5, frame6, frame7)
       expect(scorehistory.show).to eq([ 7, 10, 18, 26, 49, 64, 69])
     end
 
@@ -61,7 +61,7 @@ describe 'ScoreHistory' do
       frame6 = Frame.new(10)
       frame7 = Frame.new(10)
       frame8 = Frame.new(2, 2)
-      scoreline.add([frame5, frame6, frame7, frame8])
+      scoreline.add(frame5, frame6, frame7, frame8)
       expect(scorehistory.show).to eq([ 7, 10, 18, 26, 56, 78, 92, 96 ])
     end
 
